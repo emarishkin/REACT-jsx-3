@@ -1,12 +1,23 @@
+import { useState } from 'react'
 import './App.css'
 import AppHeader from './components/AppHeader'
 import Button from './components/Button/Button'
 import WayToTeach from './components/WayToTeach'
-import { info } from './data'
+import { differences, info } from './data'
 
 
 
 const App = () => {
+
+  const [content,setContent] = useState('Нажми на кнопку')
+
+
+  const handleClick= (q)=>{
+    return(
+        setContent(q)
+    )
+}
+
   return (
     <>
     <AppHeader />
@@ -19,10 +30,11 @@ const App = () => {
         </ul>
         <h3>Чем мы отличаемся от других</h3>
         <div style={{display:'flex',justifyContent:'center'}}>
-        <Button>Подход</Button>
-        <Button>Доступность</Button>
-        <Button>Концентрация</Button>
+        <Button onTouch={()=>handleClick('way')}>Подход</Button>
+        <Button onTouch={()=>handleClick('easy')}>Доступность</Button>
+        <Button onTouch={()=>handleClick('program')}>Концентрация</Button>
         </div>
+        <p>{differences[content]}</p>
       </section>
     </main>
       

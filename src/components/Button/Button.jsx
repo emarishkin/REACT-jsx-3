@@ -1,9 +1,10 @@
 
 import '../Button/Button.css'
 
-const Button = ({children}) => {
+const Button = ({children,onTouch}) => {
+
     return (
-         <button className='button'>{children}</button>   
+         <button onClick={onTouch} className='button'>{children}</button>   
     )
 }
 
