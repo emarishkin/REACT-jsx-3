@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import logo from '/уник.png'
 
 const AppHeader = () => {
 
-    const now= new Date()
 
+    const [now,setNow] = useState(new Date())
+   
+    setInterval(()=>setNow(new Date()),1000)
+    
 
     return (
         <div className="header">
